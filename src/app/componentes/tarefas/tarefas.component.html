@@ -1,0 +1,24 @@
+<div>
+    <form [formGroup]="tarefaForm" (ngSubmit)="adicionarTarefa()">
+      <input formControlName="titulo" placeholder="Título da tarefa">
+      <!-- <div *ngIf="tarefaForm.controls.titulo.invalid && tarefaForm.controls.titulo.touched">O título é obrigatório.</div> -->
+  
+      <input formControlName="descricao" placeholder="Descrição da tarefa">
+      <!-- <div *ngIf="tarefaForm.controls.descricao.invalid && tarefaForm.controls.descricao.touched">A descrição é obrigatória.</div> -->
+  
+      <input formControlName="dataVencimento" placeholder="Data de vencimento" type="date">
+      
+  
+      <button type="submit">Adicionar tarefa</button>
+    </form>
+  
+    <div>{{ mensagemSucesso }}</div>
+  
+    <ul>
+      <li *ngFor="let tarefa of tarefas">
+        {{ tarefa.titulo }}: {{ tarefa.descricao }}
+        <button (click)="removerTarefa(tarefa)">Remover</button>
+      </li>
+    </ul>
+  </div>
+  
